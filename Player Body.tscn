@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Player Body.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Sprite Right.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Sprite Left.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Sprite Up.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Sprite Down.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Sprite Down-Left.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Sprite Up-Left.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Sprite Down-Right.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Sprite Up-Right.png" type="Texture" id=9]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "down-left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "up-left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "down-right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "up-right",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 297.957, 220.046 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 250
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -0.0623779, 0.201202 )
+current = true
+process_mode = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0604172, 0.0243912 )
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.0604172, -4.47035e-008 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+frames = SubResource( 2 )
+animation = "up-left"
